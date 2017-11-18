@@ -1,7 +1,7 @@
 Conway's Game of Life
 =====================
 
-A solution among many produced during Global Coderetreat Day 2017 at Thessaloniki, Greece
+A solution among many produced during [Global Coderetreat Day 2017](http://coderetreat.gr/) at Thessaloniki, Greece
 
 Instructions
 ------------
