@@ -28,7 +28,7 @@ namespace GameOfLife
             universe = new Universe(this.Width / Consts.CellSize, this.Height / Consts.CellSize);
             aTimer = new System.Timers.Timer(1000 / Consts.FPS);
             aTimer.Elapsed += aTimer_Elapsed;
-            this.BackColor = Consts.Colors.Form;
+            this.BackColor = Consts.Colors.SetupForm;
             this.Text = "Game of Life - R:Fill Random, S:Start: E:End, MouseClick:Set Alive";
         }
 
@@ -50,21 +50,23 @@ namespace GameOfLife
                 {
                     cell.TomorrowIsToday();
                 });
+                this.BackColor = Consts.Colors.GameForm;
             }
+            else
+                this.BackColor = Consts.Colors.SetupForm;
+
 
             foreach (var cell in universe)
             {
                 if (GameIsOn)
                 {
-                    var color = cell.IsAlive ? Consts.Colors.AliveCell : Consts.Colors.DeadCell;
-                    e.Graphics.FillRectangle(color, cell.X * Consts.CellSize, cell.Y * Consts.CellSize, Consts.CellSize, Consts.CellSize);
+                    var color = cell.IsAlive ? new SolidBrush(Consts.Colors.AliveCell) : new SolidBrush(Consts.Colors.DeadCell);
+                    e.Graphics.FillRectangle(color, cell.X * Consts.CellSize, cell.Y * Consts.CellSize, Consts.CellSize - 1, Consts.CellSize - 1);
                 }
                 else
                 {
-                    if(cell.IsAlive)
-                        e.Graphics.FillRectangle(Consts.Colors.SetupAliveCell, cell.X * Consts.CellSize, cell.Y * Consts.CellSize, Consts.CellSize, Consts.CellSize);
-                    else
-                        e.Graphics.DrawRectangle(Consts.Colors.SetupDeadCell, cell.X * Consts.CellSize, cell.Y * Consts.CellSize, Consts.CellSize, Consts.CellSize);
+                    var color = cell.IsAlive ? new SolidBrush(Consts.Colors.SetupAliveCell) : new SolidBrush(Consts.Colors.SetupDeadCell);
+                    e.Graphics.FillRectangle(color, cell.X * Consts.CellSize, cell.Y * Consts.CellSize, Consts.CellSize - 1, Consts.CellSize - 1);
 
                 }
 

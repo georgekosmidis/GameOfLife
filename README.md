@@ -11,6 +11,7 @@ Instructions
 2. Press 's' to start simulating
 3. Press 'e' to stop and retry (goto 1)
 
+Hint: You can click or press 'r' at any time during the simulation.
 
 *User interaction and tidying was made after the event. If loading is too slow, try changing Consts.CellSize a bit!*
 

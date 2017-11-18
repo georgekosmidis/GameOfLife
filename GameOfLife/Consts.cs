@@ -14,14 +14,19 @@ namespace GameOfLife
         public static int FPS = 24;//frames per second
 
         public static int CellSize = 7;
+
+        public static int RandomModular = 15;
+
         public static class Colors
         {
-            public static SolidBrush AliveCell = new SolidBrush(Color.Black);
-            public static SolidBrush DeadCell = new SolidBrush(Color.White);
+            public static Color GameForm = Color.Black;
+            public static Color SetupForm = Color.Gray;
 
-            public static Color Form = Color.White;
-            public static SolidBrush SetupAliveCell = new SolidBrush(Color.Black);
-            public static Pen SetupDeadCell = new Pen(Color.Black);
+            public static Color AliveCell = Color.Black;
+            public static Color DeadCell = Color.White;
+
+            public static Color SetupAliveCell = Color.Black;
+            public static Color SetupDeadCell = Color.White;
         }
 
     }

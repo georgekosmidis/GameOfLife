@@ -47,7 +47,7 @@ namespace GameOfLife
             var rnd = new Random();
             Parallel.ForEach(this, cell =>
             {
-                cell.IsAlive = rnd.Next(0, 13) == 1;
+                cell.IsAlive = rnd.Next(0, Consts.RandomModular) == 1;
             });
         }
         public Cell Find(int x, int y)
