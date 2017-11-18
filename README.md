@@ -1,8 +1,10 @@
-MySolarSystem
-=============
+Conway's Game of Life
+=====================
 
-Solar System Simulation
+A solution among many produced during Global Coderetreat Day 2017 at Thessaloniki, Greece
 
-Simulating the initial anarchy of the millions of objects around a sun, 
-after some hours of colissions and objects propelled with "slingshot maneuvers" into deep space,
-you will end up with a stable system...
+Instructions
+------------
+1. Click on the grid to set alive cells or press 'r' to set some random
+2. Press 's' to start simulating
+3. Press 'e' to stop and retry (goto 1)
