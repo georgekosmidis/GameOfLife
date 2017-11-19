@@ -13,6 +13,6 @@ Instructions
 
 Hint: You can click or press 'r' at any time during the simulation.
 
-*User interaction and tidying was made after the event. If loading is too slow, try changing Consts.CellSize a bit!*
+<img src="https://raw.githubusercontent.com/georgekosmidis/GameOfLife/master/README/GameOfLife.gif" width="600" />
 
-![Results](https://raw.githubusercontent.com/georgekosmidis/GameOfLife/master/README/GameOfLife.gif)
+*User interaction and tidying was made after the event. If loading is too slow, try changing Consts.CellSize a bit!*
