@@ -15,7 +15,7 @@ namespace GameOfLife
 
         public static int CellSize = 7;
 
-        public static int RandomModular = 15;
+        public static int RandomModular = 10;
 
         public static class Colors
         {
