@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameOfLife.Calculations;
+using GameOfLife.Factories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,48 +17,50 @@ namespace GameOfLife
     {
 
         private System.Timers.Timer aTimer;
-        private Universe universe;
+        private Game game;
         private bool GameIsOn = false;
+
+
+      
+
 
         public Grid()
         {
             InitializeComponent();
-        }
-        private void Grid_Load(object sender, EventArgs e)
-        {
             this.DoubleBuffered = true;
-            universe = new Universe(this.Width / Consts.CellSize, this.Height / Consts.CellSize);
-            aTimer = new System.Timers.Timer(1000 / Consts.FPS);
-            aTimer.Elapsed += aTimer_Elapsed;
-            this.BackColor = Consts.Colors.SetupForm;
-            this.Text = "Game of Life - R:Fill Random, S:Start: E:End, MouseClick:Set Alive";
+            game = new Factories.GameFactory().Get();
         }
 
+        private void Grid_Load(object sender, EventArgs e)
+        {
+            game.CreateUniverse(this.ClientRectangle.Width / Consts.CellSize, this.ClientRectangle.Height / Consts.CellSize);
+
+            this.BackColor = Consts.Colors.SetupForm;
+            this.Text = "Game of Life - R:Fill Random, S:Start: E:End, MouseClick:Set Alive";
+            
+
+            aTimer = new System.Timers.Timer(1000 / Consts.FPS);
+            aTimer.Elapsed += aTimer_Elapsed;
+
+        }
         void aTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            Invalidate();
+            if (GameIsOn)
+                this.Invalidate();
         }
 
         private void Grid_Paint(object sender, PaintEventArgs e)
         {
             if (GameIsOn)
-            {
-                Parallel.ForEach(universe, cell =>
-                {
-                    cell.SetTomorrow();
-                });
-
-                Parallel.ForEach(universe, cell =>
-                {
-                    cell.TomorrowIsToday();
-                });
                 this.BackColor = Consts.Colors.GameForm;
-            }
             else
                 this.BackColor = Consts.Colors.SetupForm;
 
+            if (GameIsOn)
+                game.CalculateTomorrow();
 
-            foreach (var cell in universe)
+
+            foreach (var cell in game.Universe)
             {
                 if (GameIsOn)
                 {
@@ -76,7 +80,7 @@ namespace GameOfLife
 
         private void Grid_MouseClick(object sender, MouseEventArgs e)
         {
-            var cell = universe.Find(e.X / Consts.CellSize, e.Y / Consts.CellSize);
+            var cell = game.LocateCell(e.X / Consts.CellSize, e.Y / Consts.CellSize);
             cell.IsAlive = true;
             this.Invalidate();
         }
@@ -85,8 +89,8 @@ namespace GameOfLife
         {
             if (e.KeyChar.ToString().ToLower() == "r")
             {
-                universe.Reset();
-                universe.FillRandom();
+                game.ResetUniverse();
+                game.SetRandomAlive();
                 this.Invalidate();
             }
             if (e.KeyChar.ToString().ToLower() == "s")
@@ -99,7 +103,7 @@ namespace GameOfLife
                 aTimer.Stop();
                 GameIsOn = false;
 
-                universe.Reset();
+                game.ResetUniverse();
 
                 this.Invalidate();
             }

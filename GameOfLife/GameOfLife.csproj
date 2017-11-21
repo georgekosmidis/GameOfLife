@@ -44,8 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
+    <Compile Include="Models\eUserAction.cs" />
+    <Compile Include="Operations\CellOperations\Interfaces\INeighbourhoods.cs" />
+    <Compile Include="Operations\CellOperations\Interfaces\IRandomizer.cs" />
+    <Compile Include="Operations\CellOperations\Interfaces\IRestarter.cs" />
+    <Compile Include="Operations\CellOperations\Interfaces\ITomorrow.cs" />
+    <Compile Include="Operations\Game.cs" />
+    <Compile Include="Operations\UniverseOperations\Interfaces\INeighbourhoods.cs" />
+    <Compile Include="Operations\UniverseOperations\Interfaces\ILocator.cs" />
+    <Compile Include="Operations\UniverseOperations\Interfaces\ICreator.cs" />
+    <Compile Include="Operations\UniverseOperations\Interfaces\IRandomizer.cs" />
+    <Compile Include="Operations\UniverseOperations\Interfaces\IRestarter.cs" />
+    <Compile Include="Operations\UniverseOperations\Interfaces\ITomorrow.cs" />
+    <Compile Include="Operations\UniverseOperations\Locator.cs" />
+    <Compile Include="Operations\CellOperations\Neighbourhoods.cs" />
+    <Compile Include="Operations\UniverseOperations\Creator.cs" />
+    <Compile Include="Operations\CellOperations\Randomizer.cs" />
+    <Compile Include="Operations\CellOperations\Restarter.cs" />
+    <Compile Include="Operations\CellOperations\Tomorrow.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Grid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,9 +71,14 @@
       <DependentUpon>Grid.cs</DependentUpon>
     </Compile>
     <Compile Include="Consts.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\Universe.cs" />
+    <Compile Include="Operations\UniverseOperations\Neighbourhoods.cs" />
+    <Compile Include="Operations\UniverseOperations\Randomizer.cs" />
+    <Compile Include="Operations\UniverseOperations\Restarter.cs" />
+    <Compile Include="Operations\UniverseOperations\Tomorrow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Universe.cs" />
     <EmbeddedResource Include="Grid.resx">
       <DependentUpon>Grid.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +105,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
