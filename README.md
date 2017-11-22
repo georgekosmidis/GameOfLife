@@ -3,7 +3,7 @@ Conway's Game of Life
 
 A solution among many produced during [Global Coderetreat Day 2017](http://coderetreat.gr/) at Thessaloniki, Greece. 
 
-The problem was solved by everyone and in many different ways using completely different approaches, technologies and real life restrictions and scenarios, thus promoting the benefits of cooperation and cumulative brain power.
+The problem was solved by everyone and in many different ways using completely different approaches, technologies and real life restrictions and scenarios, thus promoting the benefits of cooperation and collective intelligence.
 
 Instructions
 ------------
