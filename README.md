@@ -1,7 +1,7 @@
 Conway's Game of Life
 =====================
 
-Started as a [Global Coderetreat Day 2017](http://coderetreat.gr/) coding game, refactored later. 
+Started as a [Global Coderetreat Day 2017](http://coderetreat.gr/) coding game, refactored later! 
 
 *You can find the initial push here: https://github.com/georgekosmidis/GameOfLife/tree/GlobalCoderetreatDay*
 
